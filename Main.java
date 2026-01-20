@@ -1,14 +1,12 @@
-public class Main{
-    public static void main(String[] args){
+public class Main {
 
-        ResicoTaxCalculator calculator = new ResicoTaxCalculator();
+    public static void main(String[] args) {
+        TaxCalculator calculator = new ResicoTaxCalculator();
 
-        double tax = calculator.calculateMonthlyTax(
-                10000,
-                true,
-                true
-        );
+        double income = 100_000;
+        double tax = calculator.calculate(income);
 
-        System.out.println("Tax to pay: " + tax);
+        System.out.println("Income: " + income);
+        System.out.println("RESICO tax: " + tax);
     }
 }

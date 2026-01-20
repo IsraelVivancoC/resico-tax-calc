@@ -1,4 +1,6 @@
-package PACKAGE_NAME;
-
 public interface TaxCalculator {
+    double calculate(double income);
 }
+
+
+

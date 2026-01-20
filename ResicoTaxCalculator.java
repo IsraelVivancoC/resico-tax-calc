@@ -1,33 +1,27 @@
-public class ResicoTaxCalculator {
+import java.util.Arrays;
+import java.util.List;
 
-    public double calculateMonthlyTax(
-            double monthlyIncome,
-            boolean hasIVA,
-            boolean applyRounding
-    ) {
+public class ResicoTaxCalculator implements TaxCalculator {
 
-        double taxRate;
+    private final List<TaxBracket> brackets = Arrays.asList(
+            new TaxBracket(25_000, 0.01),
+            new TaxBracket(50_000, 0.015),
+            new TaxBracket(100_000, 0.02),
+            new TaxBracket(Double.MAX_VALUE, 0.025)
+    );
 
-        if (monthlyIncome <= 25000) {
-            taxRate = 0.01;
-        } else if (monthlyIncome <= 50000) {
-            taxRate = 0.015;
-        } else if (monthlyIncome <= 100000) {
-            taxRate = 0.02;
-        } else {
-            taxRate = 0.025;
+    @Override
+    public double calculate(double income) {
+        if (income <= 0) {
+            return 0.0;
         }
 
-        double tax = monthlyIncome * taxRate;
-
-        if (hasIVA) {
-            tax = tax * 1.16;
+        for (TaxBracket bracket : brackets) {
+            if (bracket.appliesTo(income)) {
+                return bracket.calculate(income);
+            }
         }
 
-        if (applyRounding) {
-            tax = Math.round(tax * 100.0) / 100.0;
-        }
-
-        return tax;
+        return 0.0;
     }
 }
