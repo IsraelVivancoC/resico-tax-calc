@@ -8,11 +8,11 @@ public class TaxBracket {
         this.rate = rate;
     }
 
-    public boolean appliesTo(double income) {
-        return income <= upperLimit;
+    public double getUpperLimit() {
+        return upperLimit;
     }
 
-    public double calculate(double income) {
-        return income * rate;
+    public double getRate() {
+        return rate;
     }
 }
