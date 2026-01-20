@@ -1,12 +1,26 @@
 # RESICO Tax Calculator (Java)
 
-Educational Java project focused on clean code and design patterns.
+Educational Java project focused on practicing clean code and object-oriented design.
 
-## Goal
-Calculate provisional RESICO taxes using extensible and maintainable Java code.
+## Purpose
+This project explores how a simple tax calculation can evolve into a clean and extensible design using core Java concepts.
 
-## Technologies
-- Java 8+
+This version focuses on **modeling tax rules as domain objects** instead of hard-coded conditionals.
 
-## How to run
-Compile and run `Main.java`
+## Current Approach (v0.2)
+- Strategy pattern via `TaxCalculator`
+- Business rules represented as `TaxBracket` objects
+- No conditional chains for tax rates
+- Clear separation of responsibilities
+
+## Key Concepts Practiced
+- Abstraction
+- Encapsulation
+- Clean Code
+- Domain modeling
+
+## How to Run
+Compile and run `Main.java`.
+
+## Notes
+This project is iterative by design. Future versions will refine and extend the current approach.
